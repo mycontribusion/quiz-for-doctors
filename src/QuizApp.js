@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+
 import Questions from "./Questions"; 
 import WelcomePage from "./WelcomePage";
 import SorryPage from "./SorryPage";
 
-function QuizApp() {
-  const[displayed, setDisplayed] = useState('welcome')
+function QuizApp({displayed,forDoctors,forNonDoctors}) {
+  //const[displayed, setDisplayed] = useState('welcome')
 
-  const forDoctors = () => {
-    setDisplayed('display_quiz')
-  }
+  //const forDoctors = () => {
+  //  setDisplayed('display_quiz')
+//  }
 
-  const forNonDoctors = () => {
-    setDisplayed('sorry')
-  }
+ // const forNonDoctors = () => {
+ //   setDisplayed('sorry')
+ // }
 
   return(
     <div>
