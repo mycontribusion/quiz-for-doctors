@@ -1,0 +1,49 @@
+<form action="">
+        <label htmlFor="">
+        (1) Which among these nurses are the most troublesome?
+        </label>
+        <select name="" id="">
+          <option value=""></option>
+          <optgroup></optgroup>
+        </select>
+      </form>
+
+
+
+
+      <p>Which among these nurses are the most troublesome?</p>
+      <ol>
+        <li>
+          <option value="true">The nurses in the clinics</option>
+        </li>
+        <li>
+          The nurses in the wards
+        </li>
+        <li>
+          The  nurses in theatres
+        </li>
+      </ol>
+
+      <p>Which would you prefer?</p>
+      <ol>
+        <li>
+          Two weekdays calls
+        </li>
+        <li>
+          One weekend call
+        </li>
+      </ol>
+
+      <p>Do you get andry when they csll you Houseofficer?</p>
+      <ol>
+        <li>
+          Yes
+        </li>
+        <li>
+          No
+        </li>
+      </ol>
+    </div>
+
+    <button value='yes' onClick={() => determineProfession()}>Yes</button>
+    <button value='no' >No</button>
