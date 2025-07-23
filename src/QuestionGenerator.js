@@ -3,7 +3,8 @@ import { useState } from "react"
 function QuestionGenerator(){
     const[indexQuestion, setIndexQuestion] = useState(0)
     const[buttonText,setButtonText] = useState('Next')
-    const[ansObjects, setAnsObject] = useState({})
+    const[ansObject, setAnswerObject] = useState({})
+    console.log(ansObject)
     /*const qArray = [
         ['Which among these nurses are the most troublesome?', 'radio', 'opt1', 'troublesome_nurses', 'clinics', 'The nurses in the clinics', 'opt2', 'wards', 'The nurses in the wards', 'opt3', 'theater',  'The nurses in the theater'],
         ['Which among these nurses are the most troublesome?', 'radio', 'opt1', 'troublesome_nurses', 'clinics', 'The nurses in the clinics', 'opt2', 'wards', 'The nurses in the wards', 'opt3', 'theater',  'The nurses in the theater']
@@ -42,15 +43,20 @@ function QuestionGenerator(){
             options: [
                 {id: 'opt1', value: 'yes', label: 'Yes, I get angry'},
                 {id: 'opt2', value: 'no', label: 'No, I like it'},
-                {id: 'opt3', value: 'theater', label: 'No, I dont care'}
+                {id: 'opt3', value: 'indifferent', label: 'No, I dont care'}
             ]
     }
     ];
 
-    let ansArray = []
+    const sendAnswer = (questionId,pickedOption) => {
+        setAnswerObject(preAnswer =>  ({
+            ...preAnswer,
+            [questionId]: pickedOption
+        }))
+    }
 
     const currentQuestion = qsArray[indexQuestion]
-    
+
     const handlePrevClick = () => {
 
         if (indexQuestion > 0) {
@@ -97,7 +103,14 @@ function QuestionGenerator(){
                 </p>
                 {currentQuestion.options.map((data) => (
                     <div key={data.id}>
-                        <input type={currentQuestion.type} id={data.id} name={currentQuestion.name} value={data.value}/>
+                        <input 
+                        type={currentQuestion.type} 
+                        id={data.id} 
+                        name={currentQuestion.name} 
+                        value={data.value}
+                        onChange={() => {sendAnswer(currentQuestion.id, data.value)}}
+                        checked = {ansObject[currentQuestion.id]===data.value}
+                        />
                         <label htmlFor={data.id}>{data.label}</label><br/>
                     </div>
                 ))}
