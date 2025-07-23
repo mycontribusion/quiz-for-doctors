@@ -35,15 +35,15 @@ function QuestionGenerator(){
             ]
         },
         {
-        id : 'q3',
-        question : 'Do you get angry when the nurses call you Houseofficer?',
-        type : 'radio',
-        name : 'ho',
-        options: [
-            {id: 'opt1', value: 'yes', label: 'Yes, I get angry'},
-            {id: 'opt2', value: 'no', label: 'No, I like it'},
-            {id: 'opt3', value: 'theater', label: 'No, I dont care'}
-        ]
+            id : 'q3',
+            question : 'Do you get angry when the nurses call you Houseofficer?',
+            type : 'radio',
+            name : 'ho',
+            options: [
+                {id: 'opt1', value: 'yes', label: 'Yes, I get angry'},
+                {id: 'opt2', value: 'no', label: 'No, I like it'},
+                {id: 'opt3', value: 'theater', label: 'No, I dont care'}
+            ]
     }
     ];
 
@@ -95,14 +95,12 @@ function QuestionGenerator(){
                 <p>
                 {currentQuestion.question}
                 </p>
-                <input type={currentQuestion.type} id={currentQuestion.options[0].id} name={currentQuestion.name} value={currentQuestion.options[0].value}/>
-                <label htmlFor={currentQuestion.options[0].id1}>{currentQuestion.options[0].label}</label><br/>
-
-                <input type={currentQuestion.type} id={currentQuestion.options[1].id} name={currentQuestion.name} value={currentQuestion.options[1].value}/>
-                <label htmlFor={currentQuestion.options[1].id1}>{currentQuestion.options[1].label}</label><br/>
-
-                <input type={currentQuestion.type} id={currentQuestion.options[2].id} name={currentQuestion.name} value={currentQuestion.options[2].value}/>
-                <label htmlFor={currentQuestion.options[2].id}>{currentQuestion.options[2].label}</label><br/>
+                {currentQuestion.options.map((data) => (
+                    <div key={data.id}>
+                        <input type={currentQuestion.type} id={data.id} name={currentQuestion.name} value={data.value}/>
+                        <label htmlFor={data.id}>{data.label}</label><br/>
+                    </div>
+                ))}
             </form>
             <button onClick={handlePrevClick}>Previous</button>
             <button onClick={handleNextClick}>{buttonText}</button>
