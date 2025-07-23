@@ -2,6 +2,7 @@
 import Questions from "./Questions"; 
 import WelcomePage from "./WelcomePage";
 import SorryPage from "./SorryPage";
+import QuestionGenerator from "./QuestionGenerator";
 
 function QuizApp({displayed,forDoctors,forNonDoctors}) {
   //const[displayed, setDisplayed] = useState('welcome')
@@ -24,7 +25,7 @@ function QuizApp({displayed,forDoctors,forNonDoctors}) {
         )}
 
       {displayed === 'display_quiz' && (
-        <Questions />
+        <QuestionGenerator />
       )}
 
       {displayed === 'sorry' && (
